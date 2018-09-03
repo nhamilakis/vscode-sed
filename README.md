@@ -20,10 +20,12 @@ You can add custom commands in your `settings.json` by adding :
     ]
 ```
 
-## Keybings & Command
+## Use
 
-To run sed just write sed:execute or by the shortcut `ctrl+K P` for
+To run sed just tap `ctrl+P` and write `>sed:execute` or by the shortcut `ctrl+K P` for
 linux and `cmd+K P` for mac.
+
+Then choose the command you wish to execute in the current file from the list.
 
 ## Requirements
 
