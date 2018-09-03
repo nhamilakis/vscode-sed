@@ -1,0 +1,83 @@
+{
+    "name": "sed",
+    "displayName": "sed",
+    "description": "A VS code stream editor, launch a command and replace the current file with the result.",
+    "version": "0.0.1",
+    "publisher": "nhamilakis",
+    "engines": {
+        "vscode": "^1.26.0"
+    },
+    "categories": [
+        "Other"
+    ],
+    "activationEvents": [
+        "onCommand:sed.execute"
+    ],
+    "main": "./out/extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "sed.execute",
+                "title": "Run a Command",
+                "category": "sed"
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "SED Configurations",
+            "properties": {
+                "vscode-sed.commands": {
+                    "type": "array",
+                    "title": "list of available commands",
+                    "items": {
+                        "type": "object",
+                        "title": "CMD object",
+                        "properties": {
+                            "label": {
+                                "type": "string",
+                                "title": "label of command"
+                            },
+                            "description": {
+                                "type": "string",
+                                "title": "description"
+                            },
+                            "cmd": {
+                                "type": "string",
+                                "title": "the command"
+                            },
+                            "args": {
+                                "type": "array",
+                                "title": "list of arguments"
+                            },
+                            "output": {
+                                "type": "string",
+                                "title": "output file"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "keybindings": [
+            {
+                "command": "sed.execute",
+                "key": "ctrl+k P",
+                "mac": "cmd+K P"
+            }
+        ]
+    },
+    "scripts": {
+        "vscode:prepublish": "npm run compile",
+        "compile": "tsc -p ./",
+        "watch": "tsc -watch -p ./",
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.6.1",
+        "vscode": "^1.1.21",
+        "tslint": "^5.8.0",
+        "@types/node": "^8.10.25",
+        "@types/mocha": "^2.2.42"
+    }
+}
